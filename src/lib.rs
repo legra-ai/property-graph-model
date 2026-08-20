@@ -39,12 +39,12 @@ mod tests {
             1_u64,
             2_u64,
             "KNOWS".to_owned(),
-            vec![PgProperty::new("weight".to_owned(), 0.75_f32)],
+            vec![PgProperty::new("weight".to_owned(), 75_i32)],
         );
 
         assert_eq!(edge.source_id, 1);
         assert_eq!(edge.target_id, 2);
-        assert_eq!(edge.properties[0].value, 0.75);
+        assert_eq!(edge.properties[0].value, 75);
     }
 
     #[test]
