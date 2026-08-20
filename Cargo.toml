@@ -1,0 +1,30 @@
+[package]
+name = "property-graph-model"
+version = "0.1.0"
+description = "Typed records for streaming property-graph data"
+authors = ["Jacobus Geluk <jacobus.geluk@dataroad.com>"]
+edition = "2024"
+rust-version = "1.89"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/legra-ai/property-graph-model"
+documentation = "https://docs.rs/property-graph-model"
+readme = "README.md"
+keywords = ["property-graph", "graph", "lpg", "data-model"]
+categories = ["data-structures"]
+include = [
+    "Cargo.toml",
+    "README.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT",
+    "src/**/*.rs",
+]
+
+[lib]
+doctest = true
+
+[lints.rust]
+missing_docs = "deny"
+
+[lints.clippy]
+all = "deny"
+pedantic = "deny"
