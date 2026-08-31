@@ -9,6 +9,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/legra-ai/property-graph-model"
 documentation = "https://docs.rs/property-graph-model"
 readme = "README.md"
+build = "build.rs"
 keywords = ["property-graph", "graph", "lpg", "data-model"]
 categories = ["data-structures"]
 include = [
@@ -21,6 +22,9 @@ include = [
 
 [lib]
 doctest = true
+
+[build-dependencies]
+rhusky = "0.0.6"
 
 [lints.rust]
 missing_docs = "deny"
