@@ -18,7 +18,11 @@ pub use property::PgProperty;
 
 #[cfg(test)]
 mod tests {
-    use super::{PgEdge, PgNode, PgProperty};
+    use super::{
+        PgEdge,
+        PgNode,
+        PgProperty,
+    };
 
     #[test]
     fn defaults_are_owned_strings() {
