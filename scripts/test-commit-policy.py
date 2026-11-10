@@ -34,6 +34,15 @@ class CommitPolicyTests(unittest.TestCase):
         self.assertIn("token: ${{ github.ref == 'refs/heads/main' && steps.writer.outputs.token || github.token }}",
                       prepare)
 
+    def test_merge_uses_dedicated_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        workflow = (root / ".github/workflows/dependabot-merge.yml").read_text()
+        self.assertNotIn("secrets.RELEASE_WRITER_APP_", workflow)
+        self.assertIn("app-id: ${{ secrets.RELEASE_MERGER_APP_ID }}", workflow)
+        self.assertIn("private-key: ${{ secrets.RELEASE_MERGER_APP_KEY }}", workflow)
+        merge = workflow.split("merge-tested-dependabot@main", 1)[1]
+        self.assertIn("app-id: ${{ secrets.RELEASE_MERGER_APP_ID }}", merge)
+
     def test_commit_header_contract(self):
         hook = Path(__file__).resolve().parents[1] / ".githooks/commit-msg"
         cases = [
